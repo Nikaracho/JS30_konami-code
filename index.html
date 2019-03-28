@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+   <style type="text/css">
+   	html{
+   		min-height: 100%;
+   	}
+  	body{
+  		margin:0px;
+  		width:100%;
+  		height: 100%;
+  		max-width:2560px;
+  		max-height: 1626px;
+  		background: linear-gradient(45deg,#B81365,#026C7C);
+  		background-size: cover;
+  		background-repeat: no-repeat;
+  		overflow:hidden;
+  		display:flex;
+  		justify-content: center;
+  		align-content: center;
+  	}
+  	p{
+  		font-family:Oswald;
+  		font-size:50px;
+  		margin:auto;
+  		font-weight: bold;
+  	}
+  	.wrap{
+  		height: 100%;
+  		display:flex;
+  		align-items: center;
+  		justify-content: center;
+  	}
+  	.cont{
+  		display:flex;
+  		align-content: center;
+  		justify-content: center;
+  		background-color: white;
+  		margin:50px;
+  		width:700px;
+  		height:250px;
+  		border-color: black;
+  		border-width: 5px;
+  		border-style: solid;
+  		border-radius: 50px;
+  		text-align: center;
+  		box-shadow: 2px 2px 20px -2px rgba(0,0,0,0.75);
+  	}
+  	.gold{
+  		color:#CFB53B;
+  		margin:auto -46px; 
+  	}
+  </style>
+  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+	<div class="wrap">
+		<div class="cont">
+			<p class="black">Type in 'surprise', for a</p><p class="gold">surprise</p><p class="black">!</p>
+		</div>
+	</div>
+	<footer></footer>
+<script>
+	const pressed = [];
+	const secretCode = 'surprise'
+	window.addEventListener('keyup', (e) => {
+		console.log(e.key);
+		pressed.push(e.key);
+		pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+	if(pressed.join('').includes(secretCode)){
+		console.log('DING DING!');
+		cornify_add();
+	}
+	});
+</script>
+</body>
+</html>
